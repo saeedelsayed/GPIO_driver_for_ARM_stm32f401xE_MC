@@ -94,5 +94,7 @@ void GPIO_ConfigPin(uint8 port_name, uint8 pin_num, GPIO_PinModeType mode, uint8
 
 uint8 GPIO_WritePin(uint8 port_name, uint8 pin_num, uint8 data);
 
+uint8 GPIO_ReadPin(uint8 port_name, uint8 pin_num);
+
 
 #endif /* GPIO_H_ */

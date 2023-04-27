@@ -223,3 +223,67 @@ uint8 GPIO_WritePin(uint8 port_name, uint8 pin_num, uint8 data)
 
 	return status;
 }
+
+uint8 GPIO_ReadPin(uint8 port_name, uint8 pin_num)
+{
+	uint8 pin_value = LOGIC_LOW;
+
+	if(port_name >= NUM_OF_PORTS || pin_num >= NUM_OF_PINS)
+	{
+		// do nothing
+	}
+
+	else
+	{
+		switch(port_name)
+		{
+		case PORTA_ID:
+			if(BIT_IS_SET(GPIOA_IDR,pin_num)){
+				pin_value = LOGIC_HIGH;
+			}
+			else
+			{
+				pin_value = LOGIC_LOW;
+			}
+			break;
+		case PORTB_ID:
+			if(BIT_IS_SET(GPIOB_IDR,pin_num)){
+				pin_value = LOGIC_HIGH;
+			}
+			else
+			{
+				pin_value = LOGIC_LOW;
+			}
+			break;
+		case PORTC_ID:
+			if(BIT_IS_SET(GPIOC_IDR,pin_num)){
+				pin_value = LOGIC_HIGH;
+			}
+			else
+			{
+				pin_value = LOGIC_LOW;
+			}
+			break;
+		case PORTD_ID:
+			if(BIT_IS_SET(GPIOD_IDR,pin_num)){
+				pin_value = LOGIC_HIGH;
+			}
+			else
+			{
+				pin_value = LOGIC_LOW;
+			}
+			break;
+		case PORTE_ID:
+			if(BIT_IS_SET(GPIOE_IDR,pin_num)){
+				pin_value = LOGIC_HIGH;
+			}
+			else
+			{
+				pin_value = LOGIC_LOW;
+			}
+			break;
+		}
+	}
+	return pin_value;
+}
+
